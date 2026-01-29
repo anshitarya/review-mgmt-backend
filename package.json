@@ -1,0 +1,17 @@
+{
+  "name": "review-management-backend",
+  "version": "1.0.0",
+  "description": "FastAPI backend for review management system",
+  "main": "app/main.py",
+  "scripts": {
+    "start": "uvicorn app.main:app --host 0.0.0.0 --port 8000",
+    "dev": "uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "test": "pytest tests/ -v"
+  },
+  "keywords": ["fastapi", "reviews", "ai", "sentiment-analysis"],
+  "author": "Review Management System",
+  "license": "MIT",
+  "engines": {
+    "python": ">=3.8"
+  }
+}
