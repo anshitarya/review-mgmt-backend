@@ -1,1 +1,1 @@
-web: gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app --host=0.0.0.0 --port=${PORT:-8000}
+web: gunicorn -w 1 -k uvicorn.workers.UvicornWorker --timeout 120 --graceful-timeout 120 --bind 0.0.0.0:$PORT app.main:app
