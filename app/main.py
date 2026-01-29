@@ -21,7 +21,8 @@ app = FastAPI(
 allow_origins_list = [
     "http://localhost:3000",  # Local development
     "http://localhost:8888",  # Local backend
-    "https://review-management-frontend-7jrt6zxmo-anshits-projects-38a258a5.vercel.app",  # Your Vercel frontend
+    "https://review-management-project-front.vercel.app",  # Production Vercel frontend
+    "https://review-management-frontend-7jrt6zxmo-anshits-projects-38a258a5.vercel.app",  # Previous Vercel frontend
 ]
 frontend_url = os.getenv("FRONTEND_URL")
 if frontend_url and frontend_url not in allow_origins_list:
