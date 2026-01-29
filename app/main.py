@@ -18,14 +18,18 @@ app = FastAPI(
 )
 
 # Add CORS middleware
+allow_origins_list = [
+    "http://localhost:3000",  # Local development
+    "http://localhost:8888",  # Local backend
+    "https://review-management-frontend-7jrt6zxmo-anshits-projects-38a258a5.vercel.app",  # Your Vercel frontend
+]
+frontend_url = os.getenv("FRONTEND_URL")
+if frontend_url and frontend_url not in allow_origins_list:
+    allow_origins_list.append(frontend_url)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",  # Local development
-        "https://*.vercel.app",   # Vercel domains
-        "https://*.netlify.app",  # Netlify domains
-        os.getenv("FRONTEND_URL", "https://your-frontend-domain.vercel.app"),  # Your specific domain
-    ],
+    allow_origins=allow_origins_list,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
